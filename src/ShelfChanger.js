@@ -5,7 +5,7 @@ class ShelfChanger extends React.Component {
     render() {
         return (
             <div className="book-shelf-changer">
-                <select value={this.props.bookState.shelf} onChange={event => this.props.changeShelf(event.target.value)}>
+                <select value={this.props.shelf} onChange={event => this.props.changeShelf(event.target.value)}>
                     <option value="none" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
@@ -18,7 +18,7 @@ class ShelfChanger extends React.Component {
 }
 
 ShelfChanger.propTypes = {
-    bookState: PropTypes.object.isRequired,
+    shelf: PropTypes.string.isRequired,
     changeShelf: PropTypes.func.isRequired,
 }
 

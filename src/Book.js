@@ -3,15 +3,6 @@ import PropTypes from 'prop-types'
 import ShelfChanger from './ShelfChanger'
 
 class Book extends React.Component {
-    state = {
-        shelf: this.props.initialShelf
-    }
-
-    changeShelf(shelf) {
-        this.setState({ shelf })
-        this.props.updateShelf(shelf)
-    }
-
     render() {
         return (
             <div className="book">
@@ -21,7 +12,7 @@ class Book extends React.Component {
                         height: 193, 
                         backgroundImage: `url(${this.props.coverURL})`
                     }}></div>
-                    <ShelfChanger bookState={this.state} changeShelf={this.changeShelf.bind(this)}/>
+                    <ShelfChanger shelf={this.props.shelf} changeShelf={this.props.updateShelf}/>
                 </div>
                 <div className="book-title">{this.props.title}</div>
                 <div className="book-authors">{this.props.author}</div>
@@ -34,7 +25,7 @@ Book.propTypes = {
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     coverURL: PropTypes.string.isRequired,
-    initialShelf: PropTypes.string.isRequired,
+    shelf: PropTypes.string.isRequired,
     updateShelf: PropTypes.func.isRequired,    
 }
 

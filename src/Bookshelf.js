@@ -15,7 +15,7 @@ class Bookshelf extends React.Component {
                                     title={b.title} 
                                     author={b.author} 
                                     coverURL={b.coverURL} 
-                                    initialShelf={b.shelf}
+                                    shelf={b.shelf}
                                     updateShelf={shelf => this.props.updateBook(b.id, shelf)}
                                 />
                             </li>
