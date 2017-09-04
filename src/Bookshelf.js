@@ -13,10 +13,10 @@ class Bookshelf extends React.Component {
                             <li key={b.id}>
                                 <Book 
                                     title={b.title} 
-                                    author={b.author} 
+                                    authors={b.authors} 
                                     coverURL={b.coverURL} 
                                     shelf={b.shelf}
-                                    updateShelf={shelf => this.props.updateBook(b.id, shelf)}
+                                    updateShelf={shelf => this.props.updateBook(b, shelf)}
                                 />
                             </li>
                         )}

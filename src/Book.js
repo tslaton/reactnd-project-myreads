@@ -15,7 +15,7 @@ class Book extends React.Component {
                     <ShelfChanger shelf={this.props.shelf} changeShelf={this.props.updateShelf}/>
                 </div>
                 <div className="book-title">{this.props.title}</div>
-                <div className="book-authors">{this.props.author}</div>
+                <div className="book-authors">{this.props.authors}</div>
             </div>
         )
     }
@@ -23,7 +23,7 @@ class Book extends React.Component {
 
 Book.propTypes = {
     title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
+    authors: PropTypes.string.isRequired,
     coverURL: PropTypes.string.isRequired,
     shelf: PropTypes.string.isRequired,
     updateShelf: PropTypes.func.isRequired,    
