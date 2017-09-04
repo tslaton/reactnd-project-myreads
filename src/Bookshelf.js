@@ -9,13 +9,14 @@ class Bookshelf extends React.Component {
                 <h2 className="bookshelf-title">{this.props.shelfTitle}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
-                        {this.props.books.map((b, i) => 
-                            <li key={i}>
+                        {this.props.books.map(b => 
+                            <li key={b.id}>
                                 <Book 
                                     title={b.title} 
                                     author={b.author} 
                                     coverURL={b.coverURL} 
                                     initialShelf={b.shelf}
+                                    updateShelf={shelf => this.props.updateBook(b.id, shelf)}
                                 />
                             </li>
                         )}
@@ -29,6 +30,7 @@ class Bookshelf extends React.Component {
 Bookshelf.propTypes = {
     shelfTitle: PropTypes.string.isRequired,
     books: PropTypes.array.isRequired,
+    updateBook: PropTypes.func.isRequired,
 }
 
 export default Bookshelf

@@ -9,6 +9,7 @@ class Book extends React.Component {
 
     changeShelf(shelf) {
         this.setState({ shelf })
+        this.props.updateShelf(shelf)
     }
 
     render() {
@@ -20,7 +21,7 @@ class Book extends React.Component {
                         height: 193, 
                         backgroundImage: `url(${this.props.coverURL})`
                     }}></div>
-                    <ShelfChanger bookState={this.state} onShelfChange={this.changeShelf.bind(this)}/>
+                    <ShelfChanger bookState={this.state} changeShelf={this.changeShelf.bind(this)}/>
                 </div>
                 <div className="book-title">{this.props.title}</div>
                 <div className="book-authors">{this.props.author}</div>
@@ -34,6 +35,7 @@ Book.propTypes = {
     author: PropTypes.string.isRequired,
     coverURL: PropTypes.string.isRequired,
     initialShelf: PropTypes.string.isRequired,
+    updateShelf: PropTypes.func.isRequired,    
 }
 
 export default Book
